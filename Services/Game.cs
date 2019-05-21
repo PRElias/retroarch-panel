@@ -19,14 +19,19 @@ public class GameService : IGameService
     public GameList GetGames()
     {
         List<string> dirs = new List<string>(Directory.EnumerateDirectories(_env.ContentRootPath + "\\RETROARCH\\share\\roms"));
+        GameList gl = new GameList();
 
         foreach (var dir in dirs)
         {
-            Console.WriteLine($"{dir.Substring(dir.LastIndexOf(Path.DirectorySeparatorChar) + 1)}");
-        }
+            //Pegando apenas o nome da pasta
+            //Console.WriteLine($"{dir.Substring(dir.LastIndexOf(Path.DirectorySeparatorChar) + 1)}");
 
-        XmlSerializer ser = new XmlSerializer(typeof(GameList));
-        FileStream myFileStream = new FileStream(_env.ContentRootPath + "\\gamelist.xml", FileMode.Open);
-        return (GameList)ser.Deserialize(myFileStream);
+            XmlSerializer ser = new XmlSerializer(typeof(GameList));
+            FileStream myFileStream = new FileStream(dir + "\\gamelist.xml", FileMode.Open);
+            var retorno = (GameList)ser.Deserialize(myFileStream);
+            gl.Games.AddRange(retorno.Games);
+        }
+        
+        return gl;
     }
 }

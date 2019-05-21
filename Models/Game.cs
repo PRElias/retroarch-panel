@@ -20,6 +20,11 @@ namespace retroarch_panel.Models
     public class GameList
     {
         [XmlElement(ElementName = "game")]
-        public List<Game> Game { get; set; }
+        public List<Game> Games { get; set; }
+
+        public GameList()
+        {
+            Games = new List<Game>();
+        }
     }
 }
