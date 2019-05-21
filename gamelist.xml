@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<gameList>
+    <game>
+        <path>./Flying Warriors (USA).zip</path>
+        <name>Flying Warriors (USA)</name>
+        <playcount>1</playcount>
+        <lastplayed>20180405T095850</lastplayed>
+    </game>
+    <game>
+        <path>./Teste.zip</path>
+        <name>Teste</name>
+        <playcount>2</playcount>
+        <lastplayed>20180405T095850</lastplayed>
+    </game>
+</gameList>
