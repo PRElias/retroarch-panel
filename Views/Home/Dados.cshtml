@@ -12,6 +12,15 @@
             <th>
                 Nome do Jogo
             </th>
+            <th>
+                Imagem
+            </th>
+            <th>
+                Playcount
+            </th>
+            <th>
+                Lasplayed
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -23,6 +32,15 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => game.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => game.Image)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => game.Playcount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => game.Lastplayed)
                 </td>
             </tr>
         }

@@ -9,6 +9,8 @@ namespace retroarch_panel.Models
         [XmlElement(ElementName = "path")]
         public string Path { get; set; }
         [XmlElement(ElementName = "name")]
+        public string Image { get; set; }
+        [XmlElement(ElementName = "image")]
         public string Name { get; set; }
         [XmlElement(ElementName = "playcount")]
         public string Playcount { get; set; }
