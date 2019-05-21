@@ -10,10 +10,7 @@ namespace retroarch_panel.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
         public IActionResult Dados([FromServices] IGameService gameService)
         {
             var teste = gameService.GetGames();
