@@ -1,0 +1,24 @@
+@model retroarch_panel.Models.GameList
+
+<h1>Jogos</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome do Jogo
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var game in Model.Games)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => game.Name)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

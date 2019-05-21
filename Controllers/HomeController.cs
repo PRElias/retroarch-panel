@@ -13,8 +13,8 @@ namespace retroarch_panel.Controllers
         public IActionResult Index() => View();
         public IActionResult Dados([FromServices] IGameService gameService)
         {
-            var teste = gameService.GetGames();
-            return View();
+            var jogos = gameService.GetGames();
+            return View(jogos);
         }
 
         public IActionResult Privacy()
