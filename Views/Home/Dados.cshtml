@@ -6,6 +6,10 @@
     <thead>
         <tr>
             <th>
+                Sistema
+            </th>
+
+            <th>
                 Nome do Jogo
             </th>
         </tr>
@@ -14,6 +18,9 @@
         @foreach (var game in Model.Games)
         {
             <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => game.System)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => game.Name)
                 </td>

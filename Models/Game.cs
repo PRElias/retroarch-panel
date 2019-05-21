@@ -14,6 +14,8 @@ namespace retroarch_panel.Models
         public string Playcount { get; set; }
         [XmlElement(ElementName = "lastplayed")]
         public string Lastplayed { get; set; }
+
+        public string System {get; set;}
     }
 
     [XmlRoot(ElementName = "gameList")]

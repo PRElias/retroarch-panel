@@ -25,10 +25,12 @@ public class GameService : IGameService
         {
             //Pegando apenas o nome da pasta
             //Console.WriteLine($"{dir.Substring(dir.LastIndexOf(Path.DirectorySeparatorChar) + 1)}");
+            string system = dir.Substring(dir.LastIndexOf(Path.DirectorySeparatorChar) + 1);
 
             XmlSerializer ser = new XmlSerializer(typeof(GameList));
             FileStream myFileStream = new FileStream(dir + "\\gamelist.xml", FileMode.Open);
             var retorno = (GameList)ser.Deserialize(myFileStream);
+            retorno.Games.ForEach(g => g.System = system);
             gl.Games.AddRange(retorno.Games);
         }
         
