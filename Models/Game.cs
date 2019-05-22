@@ -9,17 +9,17 @@ namespace retroarch_panel.Models
         [XmlElement(ElementName = "path")]
         public string Path { get; set; }
         [XmlElement(ElementName = "name")]
-        
+
         public string Name { get; set; }
         [XmlElement(ElementName = "playcount")]
         public string Playcount { get; set; }
         [XmlElement(ElementName = "lastplayed")]
         public string Lastplayed { get; set; }
 
-        public string Image { get; set; }
         [XmlElement(ElementName = "image")]
+        public string Image { get; set; }
 
-        public string System {get; set;}
+        public string System { get; set; }
     }
 
     [XmlRoot(ElementName = "gameList")]

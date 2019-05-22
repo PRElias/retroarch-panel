@@ -11,6 +11,7 @@ public interface IGameService
 }
 public class GameService : IGameService
 {
+    private const string RetroarchShare = @"R:\roms";
     private readonly IHostingEnvironment _env;
     public GameService(IHostingEnvironment env)
     {
@@ -18,7 +19,7 @@ public class GameService : IGameService
     }
     public GameList GetGames()
     {
-        List<string> dirs = new List<string>(Directory.EnumerateDirectories(_env.ContentRootPath + "\\RETROARCH\\share\\roms"));
+        List<string> dirs = new List<string>(Directory.EnumerateDirectories(RetroarchShare));
         GameList gl = new GameList();
 
         foreach (var dir in dirs)
@@ -28,12 +29,17 @@ public class GameService : IGameService
             string system = dir.Substring(dir.LastIndexOf(Path.DirectorySeparatorChar) + 1);
 
             XmlSerializer ser = new XmlSerializer(typeof(GameList));
-            using (FileStream myFileStream = new FileStream(dir + "\\gamelist.xml", FileMode.Open))
+
+            if (File.Exists(dir + "\\gamelist.xml"))
             {
-                var retorno = (GameList)ser.Deserialize(myFileStream);
-                retorno.Games.ForEach(g => g.System = system);
-                gl.Games.AddRange(retorno.Games);
+                using (FileStream myFileStream = new FileStream(dir + "\\gamelist.xml", FileMode.Open))
+                {
+                    var retorno = (GameList)ser.Deserialize(myFileStream);
+                    retorno.Games.ForEach(g => g.System = system);
+                    gl.Games.AddRange(retorno.Games);
+                }
             }
+
         }
         return gl;
     }
