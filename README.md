@@ -4,6 +4,7 @@ Website para exibição de dados de jogos de um Retroarch na rede local
 # Usando
 
 - Instale o dotnet core 2.2
+- Mantenha seu RaspberryPI ligado
 - Verifique se o seu computador consegue acessar a pasta share do Recalbox, executando o comando abaixo no meu Run (Executar) ```Win + R```
 
 ```\\RETROARCH\share```

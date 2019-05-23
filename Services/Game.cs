@@ -24,8 +24,6 @@ public class GameService : IGameService
 
         foreach (var dir in dirs)
         {
-            //Pegando apenas o nome da pasta
-            //Console.WriteLine($"{dir.Substring(dir.LastIndexOf(Path.DirectorySeparatorChar) + 1)}");
             string system = dir.Substring(dir.LastIndexOf(Path.DirectorySeparatorChar) + 1);
 
             XmlSerializer ser = new XmlSerializer(typeof(GameList));
