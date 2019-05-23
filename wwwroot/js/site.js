@@ -3,5 +3,8 @@
 
 // Write your JavaScript code.
 $(document).ready( function () {
-    $('#gamesTable').DataTable();
+    $('#gamesTable').DataTable({
+        pageLength: 100
+        // https://datatables.net/reference/option/
+    });
 } );

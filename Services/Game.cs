@@ -33,11 +33,17 @@ public class GameService : IGameService
                 using (FileStream myFileStream = new FileStream(dir + "\\gamelist.xml", FileMode.Open))
                 {
                     var retorno = (GameList)ser.Deserialize(myFileStream);
-                    retorno.Games.ForEach(g => g.System = system);
+                    foreach (var jogo in retorno.Games)
+                    {
+                        jogo.System = system;
+                        if (jogo.Image != null & jogo.Image != String.Empty)
+                        {
+                            jogo.Image = dir + jogo.Image.Substring(1, jogo.Image.Length -1).Replace("//", @"\");
+                        }
+                    }
                     gl.Games.AddRange(retorno.Games);
                 }
             }
-
         }
         return gl;
     }

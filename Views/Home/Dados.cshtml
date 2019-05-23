@@ -34,7 +34,8 @@
                     @Html.DisplayFor(modelItem => game.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => game.Image)
+                    <!-- @Html.DisplayFor(modelItem => game.Image) -->
+                    <img src="@Url.Content(game.Image)" class="img-fluid" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => game.Playcount)
