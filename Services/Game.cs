@@ -38,7 +38,8 @@ public class GameService : IGameService
                         jogo.System = system;
                         if (jogo.Image != null & jogo.Image != String.Empty)
                         {
-                            jogo.Image = dir + jogo.Image.Substring(1, jogo.Image.Length -1).Replace("//", @"\");
+                            // jogo.Image = dir + jogo.Image.Substring(1, jogo.Image.Length -1).Replace("//", @"\");
+                            jogo.Image = "~/images/" + system + jogo.Image.Substring(1, jogo.Image.Length -1).Replace("//", @"\");
                         }
                     }
                     gl.Games.AddRange(retorno.Games);
