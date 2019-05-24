@@ -8,3 +8,24 @@ $(document).ready( function () {
         // https://datatables.net/reference/option/
     });
 } );
+
+$(function () {
+
+    $("#btnExcel").click(function(e) {
+        e.preventDefault();
+        // var t = '@GetAntiXsrfRequestToken()';
+        $.ajax({
+                 url: "/Home/ExcelExport",
+                //  headers:
+                //  {
+                //      "RequestVerificationToken": t
+                //  },
+                 type: "POST",
+                //  data: { data: 'foo2' },
+        }).done(function(data) {
+                console.log(data);
+        }).fail(function(a, v, e) {
+                alert(e);
+        });
+    });
+})
