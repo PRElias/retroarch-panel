@@ -33,6 +33,7 @@ public class GameService : IGameService
                 using (FileStream myFileStream = new FileStream(dir + "\\gamelist.xml", FileMode.Open))
                 {
                     var retorno = (GameList)ser.Deserialize(myFileStream);
+
                     foreach (var jogo in retorno.Games)
                     {
                         jogo.System = system;
