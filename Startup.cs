@@ -60,7 +60,8 @@ namespace retroarch_panel
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(
-                Path.Combine(@"R:\roms")),
+                // Path.Combine(@"R:\roms")),
+                Path.Combine(Configuration.GetValue<string>("RecalboxShare"))),
                 RequestPath = "/images"
             });
 

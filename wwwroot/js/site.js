@@ -7,9 +7,6 @@ $(document).ready( function () {
         pageLength: 100
         // https://datatables.net/reference/option/
     });
-} );
-
-$(function () {
 
     $("#btnExcel").click(function(e) {
         e.preventDefault();
@@ -28,4 +25,4 @@ $(function () {
                 alert(e);
         });
     });
-})
+} );

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using retroarch_panel.Models;
 
 public interface IGameService
@@ -11,15 +12,18 @@ public interface IGameService
 }
 public class GameService : IGameService
 {
-    private const string RetroarchShare = @"R:\roms";
     private readonly IHostingEnvironment _env;
-    public GameService(IHostingEnvironment env)
+    private readonly IConfiguration _config;
+    private readonly string RecalboxShare;
+    public GameService(IHostingEnvironment env, IConfiguration config)
     {
         _env = env;
+        _config = config;
+        RecalboxShare = _config.GetValue<string>("RecalboxShare");
     }
     public GameList GetGames()
     {
-        List<string> dirs = new List<string>(Directory.EnumerateDirectories(RetroarchShare));
+        List<string> dirs = new List<string>(Directory.EnumerateDirectories(RecalboxShare));
         GameList gl = new GameList();
 
         foreach (var dir in dirs)
@@ -39,7 +43,6 @@ public class GameService : IGameService
                         jogo.System = system;
                         if (jogo.Image != null & jogo.Image != String.Empty)
                         {
-                            // jogo.Image = dir + jogo.Image.Substring(1, jogo.Image.Length -1).Replace("//", @"\");
                             jogo.Image = "~/images/" + system + jogo.Image.Substring(1, jogo.Image.Length -1).Replace("//", @"\");
                         }
                     }
