@@ -26,3 +26,8 @@ $(document).ready( function () {
     //     });
     // });
 } );
+
+$(window).load(function() {
+    // Animate loader off screen
+    $(".loading").fadeOut("slow");;
+});
