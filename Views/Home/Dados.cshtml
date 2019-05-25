@@ -1,6 +1,10 @@
 @model retroarch_panel.Models.GameList
 
-<button id="btnExcel">Excel Download</button>
+<!-- <button id="btnExcel">Excel Download</button> -->
+@using (Html.BeginForm("ExcelExport", "Home"))
+{
+    <button type="submit" class="btn btn-primary">Excel Download</button>
+}
 
 <h1>Jogos</h1>
 
@@ -14,9 +18,9 @@
             <th>
                 Nome do Jogo
             </th>
-            <th>
+            <!-- <th>
                 Imagem
-            </th>
+            </th> -->
             <th>
                 Playcount
             </th>
@@ -35,10 +39,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => game.Name)
                 </td>
-                <td>
-                    <!-- @Html.DisplayFor(modelItem => game.Image) -->
+                <!-- <td>
                     <img src="@Url.Content(game.Image)" class="img-fluid img-max" />
-                </td>
+                </td> -->
                 <td>
                     @Html.DisplayFor(modelItem => game.Playcount)
                 </td>
