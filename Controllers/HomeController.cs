@@ -31,7 +31,7 @@ namespace retroarch_panel.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult ExcelExport([FromServices] IGameService gameService)
+        public void ExcelExport([FromServices] IGameService gameService)
         {
             //Create a new ExcelPackage
             using (ExcelPackage excelPackage = new ExcelPackage())
@@ -40,6 +40,8 @@ namespace retroarch_panel.Controllers
                 {
                     new string[] { "Rom", "Name", "Playcount", "Lastplayed", "Image", "System" }
                 };
+
+                var fileName = "AllGames.xlsx";
 
                 // Determine the header range (e.g. A1:E1)
                 string headerRange = "A1:" + Char.ConvertFromUtf32(headerRow[0].Length + 64) + "1";
@@ -57,14 +59,20 @@ namespace retroarch_panel.Controllers
                 // Popular header row data
                 worksheet.Cells[headerRange].LoadFromArrays(headerRow);
                 worksheet.Cells[headerRange].Style.Font.Bold = true;
-                worksheet.Cells[2,1].LoadFromCollection(gameList.Games);
+                worksheet.Cells[2, 1].LoadFromCollection(gameList.Games);
 
                 //Save your file
-                FileInfo fi = new FileInfo(@"C:\Users\ppusp\Downloads\File.xlsx");
-                excelPackage.SaveAs(fi);
+                // FileInfo fi = new FileInfo(@"C:\Users\ppusp\Downloads\File.xlsx");
+                // excelPackage.SaveAs(fi);
+
+                this.Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+                this.Response.Headers.Add(
+                          "content-disposition",
+                          string.Format("attachment;  filename={0}", "AllGames.xlsx"));
+                this.Response.Body.WriteAsync(excelPackage.GetAsByteArray());
             }
 
-            return Ok();
+            // return Ok();
         }
     }
 }
