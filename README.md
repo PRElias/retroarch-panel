@@ -1,6 +1,8 @@
 # retroarch-panel
 Website para exibição de dados de jogos de um Retroarch na rede local
 
+https://github.com/PRElias/images-gifs-readme/raw/master/retroarch-panel.gif?raw=true
+
 # Usando
 
 - Instale o dotnet core 2.2
