@@ -16,9 +16,15 @@ Website para exibição de dados de jogos de um Retroarch na rede local
 
 ```dotnet run```
 
-## Obersvações
+## Observações
 
 1. O caminho acima é o oficial do Recalbox, mas a aplicação também funciona para retropie. Nesse caso, provavelmente o mapeamento ficará ```\\RETROPIE\roms```, sendo necessário alterar no arqvuio ```appsettings.json``` o parâmetro ```RecalboxShare``` para apenas ```R:\\```
+
+# Funcionalidades
+
+- Pesquisa por todos os campos
+- Ordenação
+- Exportação para Excel
 
 # Roadmap
 
