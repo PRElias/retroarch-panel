@@ -7,7 +7,8 @@
 }
 
 <!-- https://smallenvelop.com/display-loading-icon-page-loads-completely/ -->
-<div class="loading"></div>
+<div class="loading"><p class="loading-message">Carregando informações, aguarde</p></div>
+
 
 <h1>Jogos</h1>
 
@@ -21,9 +22,9 @@
             <th>
                 Nome do Jogo
             </th>
-            <!-- <th>
+            <th>
                 Imagem
-            </th> -->
+            </th>
             <th>
                 Playcount
             </th>
@@ -42,9 +43,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => game.Name)
                 </td>
-                <!-- <td>
-                    <img src="@Url.Content(game.Image)" class="img-fluid img-max" />
-                </td> -->
+                <td>
+                    <img data-src="@Url.Content(game.Image)" class="img-fluid img-max lazy" />
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => game.Playcount)
                 </td>

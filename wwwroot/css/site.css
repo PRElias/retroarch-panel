@@ -56,7 +56,7 @@ body {
 }
 
 .img-max {
-  max-width: 500px;
+  max-width: 300px;
   width:100%;
 }
 
@@ -68,9 +68,14 @@ if it's not present, don't show loader */
 .loading {
 	position: fixed;
 	left: 0px;
-	top: 0px;
+  top: 0px;
 	width: 100%;
 	height: 100%;
 	z-index: 9999;
 	background: url(../img/bannerBackgroundImage.gif) center no-repeat #fff;
+}
+
+.loading-message {
+  text-align: center;
+  line-height: 250px;
 }

@@ -4,7 +4,10 @@
 // Write your JavaScript code.
 $(document).ready( function () {
     $('#gamesTable').DataTable({
-        pageLength: 100
+        pageLength: 50,
+        drawCallback: function(){
+            $("img.lazy").Lazy();
+       }
         // https://datatables.net/reference/option/
     });
 
