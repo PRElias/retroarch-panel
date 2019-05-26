@@ -1,4 +1,4 @@
-# retroarch-panel
+# Retroarch-panel
 Website para exibição de dados de jogos de um Retroarch na rede local
 
 ![gif](https://github.com/PRElias/images-gifs-readme/raw/master/retroarch-panel.gif?raw=true)
@@ -11,10 +11,20 @@ Website para exibição de dados de jogos de um Retroarch na rede local
 
 ```\\RETROARCH\share```
 
-- Mapeie uma unidade de rede para o caminho acima atribuindo a letra R¹
+- Mapeie uma unidade de rede para o caminho acima atribuindo a letra R ¹
 - Abra um terminal na pasta onde baixou o projeto e execute o comando abaixo:
 
 ```dotnet run```
 
+## Obersvações
 
 1. O caminho acima é o oficial do Recalbox, mas a aplicação também funciona para retropie. Nesse caso, provavelmente o mapeamento ficará ```\\RETROPIE\roms```, sendo necessário alterar no arqvuio ```appsettings.json``` o parâmetro ```RecalboxShare``` para apenas ```R:\\```
+
+# Roadmap
+
+Minha ideia é ir aperfeiçoando o projeto aos poucos e incluindo funcionalidades como:
+- Conexão ao retroachievments
+- Scraper
+- Tradução para outras línguas
+
+Quaisquer sugestões ou **merge requests** são bem-vindos e serão atualizados
