@@ -32,5 +32,6 @@ Minha ideia é ir aperfeiçoando o projeto aos poucos e incluindo funcionalidade
 - Conexão ao retroachievments
 - Scraper
 - Tradução para outras línguas
+- Manipulação da gamelist pela interface (excluir jogo, fazer scrap, mudar imagem manualmente), inclusive em lote (sugestão do usuário [Arlindo Orlando do forum Outerspace](https://forum.outerspace.com.br/index.php?threads/download-retroarch-v1-7-6-x64-pr%C3%A9-configurado-vers%C3%A3o-pc.543884/post-16867533))  
 
 Quaisquer sugestões ou **merge requests** são bem-vindos e serão atualizados
