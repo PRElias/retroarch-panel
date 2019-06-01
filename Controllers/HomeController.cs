@@ -72,5 +72,11 @@ namespace retroarch_panel.Controllers
 
             // return Ok();
         }
+
+        public void StopEmulationStation () 
+        {
+            Ssh ssh = new Ssh();
+            var teste = ssh.ExecuteCommand();
+        }
     }
 }
