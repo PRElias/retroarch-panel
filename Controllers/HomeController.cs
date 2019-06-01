@@ -41,8 +41,6 @@ namespace retroarch_panel.Controllers
                     new string[] { "Rom", "Name", "Playcount", "Lastplayed", "Image", "System" }
                 };
 
-                var fileName = "AllGames.xlsx";
-
                 // Determine the header range (e.g. A1:E1)
                 string headerRange = "A1:" + Char.ConvertFromUtf32(headerRow[0].Length + 64) + "1";
 
