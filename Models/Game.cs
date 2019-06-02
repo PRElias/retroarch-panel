@@ -41,6 +41,8 @@ namespace retroarch_panel.Models
         [XmlElement(ElementName = "game")]
         public List<Game> Games { get; set; }
 
+        public Guid Id { get; set; }
+
         public GameList()
         {
             Games = new List<Game>();

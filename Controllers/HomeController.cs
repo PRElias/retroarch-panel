@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using OfficeOpenXml;
 using retroarch_panel.Models;
+using LiteDB;
+using System.Linq;
+using retroarch_panel.Services;
 
 namespace retroarch_panel.Controllers
 {
@@ -15,22 +18,12 @@ namespace retroarch_panel.Controllers
         public IActionResult Index() => View();
         public IActionResult Dados([FromServices] IGameService gameService)
         {
-            if (HttpContext.Session.GetString("games") == null)
-            {
-                gameList = gameService.GetGames();
-                HttpContext.Session.SetString("games", JsonConvert.SerializeObject(gameService.GetGames()));
-            }
-            else
-            {
-                gameList = JsonConvert.DeserializeObject<GameList>(HttpContext.Session.GetString("games"));
-            }
-
-            return View(gameList);
+            return View(gameService.GetGames());
         }
 
-        public IActionResult Detalhes(int id)
+        public IActionResult Detalhes(int id, [FromServices] IGameService gameService)
         {
-            gameList = JsonConvert.DeserializeObject<GameList>(HttpContext.Session.GetString("games"));
+            gameList = gameService.GetGames();
             var gameDetalhe = gameList.Games.Find(g => g.panelGameId == id);
             return View(gameDetalhe);
         }
@@ -62,15 +55,7 @@ namespace retroarch_panel.Controllers
                 //Create the WorkSheet
                 ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("All Games");
 
-                if (HttpContext.Session.GetString("games") == null)
-                {
-                    gameList = gameService.GetGames();
-                    HttpContext.Session.SetString("games", JsonConvert.SerializeObject(gameService.GetGames()));
-                }
-                else
-                {
-                    gameList = JsonConvert.DeserializeObject<GameList>(HttpContext.Session.GetString("games"));
-                }
+                gameList = gameService.GetGames();
 
                 // Popular header row data
                 worksheet.Cells[headerRange].LoadFromArrays(headerRow);

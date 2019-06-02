@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="EPPlus.Core" Version="1.5.4" />
+    <PackageReference Include="LiteDB" Version="4.1.4" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="SSH.Net.Core" Version="0.9.1-rc" />
