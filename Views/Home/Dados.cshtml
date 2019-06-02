@@ -1,6 +1,7 @@
 @model retroarch_panel.Models.GameList
 
 <!-- <button id="btnExcel">Excel Download</button> -->
+<p>
 @using (Html.BeginForm("ExcelExport", "Home"))
 {
     <button type="submit" class="btn btn-primary">Excel Download</button>
@@ -10,6 +11,12 @@
 {
     <button type="submit" class="btn btn-primary">Stop EmulationStation</button>
 }
+</p>
+
+<!-- @using (Html.BeginForm("StartEmulationStation", "Home"))
+{
+    <button type="submit" class="btn btn-primary">Start EmulationStation</button>
+} -->
 
 <!-- https://smallenvelop.com/display-loading-icon-page-loads-completely/ -->
 <div class="loading"><p class="loading-message">Carregando informações, aguarde</p></div>

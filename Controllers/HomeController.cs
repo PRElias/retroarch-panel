@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
@@ -73,10 +74,18 @@ namespace retroarch_panel.Controllers
             // return Ok();
         }
 
-        public void StopEmulationStation () 
+        public void StopEmulationStation()
         {
             Ssh ssh = new Ssh();
-            var teste = ssh.ExecuteCommand();
+            var teste = ssh.ExecuteCommand("killall emulationstation");
+            this.Response.Redirect("Home/Dados");
         }
+
+        // public void StartEmulationStation()
+        // {
+        //     Ssh ssh = new Ssh();
+        //     var teste = ssh.ExecuteCommand("/etc/init.d/S31emulationstation start");
+        //     this.Response.Redirect("Home/Dados");
+        // }
     }
 }
