@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -19,20 +15,24 @@ namespace retroarch_panel.Controllers
         public IActionResult Index() => View();
         public IActionResult Dados([FromServices] IGameService gameService)
         {
-            if (HttpContext.Session.GetString("games") == null){
+            if (HttpContext.Session.GetString("games") == null)
+            {
                 gameList = gameService.GetGames();
                 HttpContext.Session.SetString("games", JsonConvert.SerializeObject(gameService.GetGames()));
             }
-            else{
+            else
+            {
                 gameList = JsonConvert.DeserializeObject<GameList>(HttpContext.Session.GetString("games"));
             }
-            
+
             return View(gameList);
         }
 
-        public IActionResult Privacy()
+        public IActionResult Detalhes(Game game)
         {
-            return View();
+            gameList = JsonConvert.DeserializeObject<GameList>(HttpContext.Session.GetString("games"));
+            var gameDetalhe = gameList.Games.Find(g => g.panelGameId == game.panelGameId);
+            return View(gameDetalhe);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -48,7 +48,7 @@ namespace retroarch_panel.Controllers
             {
                 List<string[]> headerRow = new List<string[]>()
                 {
-                    new string[] { "Rom", "Name", "Playcount", "Lastplayed", "Image", "System" }
+                    new string[] { "Rom", "Name", "Description", "Image", "Rating", "Release Date", "Developer", "Publisher", "Genre", "Players", "Playcount", "Lastplayed", "System" }
                 };
 
                 // Determine the header range (e.g. A1:E1)
@@ -62,7 +62,15 @@ namespace retroarch_panel.Controllers
                 //Create the WorkSheet
                 ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("All Games");
 
-                gameList = gameService.GetGames();
+                if (HttpContext.Session.GetString("games") == null)
+                {
+                    gameList = gameService.GetGames();
+                    HttpContext.Session.SetString("games", JsonConvert.SerializeObject(gameService.GetGames()));
+                }
+                else
+                {
+                    gameList = JsonConvert.DeserializeObject<GameList>(HttpContext.Session.GetString("games"));
+                }
 
                 // Popular header row data
                 worksheet.Cells[headerRange].LoadFromArrays(headerRow);

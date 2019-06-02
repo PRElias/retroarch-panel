@@ -25,6 +25,7 @@ public class GameService : IGameService
     {
         List<string> dirs = new List<string>(Directory.EnumerateDirectories(RecalboxShare));
         GameList gl = new GameList();
+        int panelGameId = 0;
 
         foreach (var dir in dirs)
         {
@@ -41,6 +42,7 @@ public class GameService : IGameService
                     foreach (var jogo in retorno.Games)
                     {
                         jogo.System = system;
+                        jogo.panelGameId = panelGameId++;
                         if (jogo.Image != null & jogo.Image != String.Empty)
                         {
                             jogo.Image = "~/images/" + system + jogo.Image.Substring(1, jogo.Image.Length -1).Replace("//", @"\");

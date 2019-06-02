@@ -1,5 +1,8 @@
 @model retroarch_panel.Models.Game
 
+<p>Sistema: @Model.System</p>
 <p>Nome: @Model.Name</p>
 
-<p><img data-src="@Url.Content(Model.Image)" class="img-fluid img-max lazy" /></p>
+<img src="@Url.Content(Model.Image)" class="img-fluid img-max" />
+
+<a href='javascript:history.go(-1)'>Voltar</a>

@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+
 namespace retroarch_panel.Models
 {
     [XmlRoot(ElementName = "game")]
@@ -31,6 +32,7 @@ namespace retroarch_panel.Models
         [XmlElement(ElementName = "lastplayed")]
         public string Lastplayed { get; set; }
         public string System { get; set; }
+        public int panelGameId { get; set; }
     }
 
     [XmlRoot(ElementName = "gameList")]
