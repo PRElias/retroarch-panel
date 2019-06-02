@@ -11,13 +11,34 @@ namespace retroarch_panel.Models
         [XmlElement(ElementName = "name")]
 
         public string Name { get; set; }
+        [XmlElement(ElementName = "desc")]
+
+        [XmlElement(ElementName = "image")]
+        public string Image { get; set; }
+
+        [XmlElement(ElementName = "rating")]
+        public string Rating { get; set; }
+
+        [XmlElement(ElementName = "releasedate")]
+        public string ReleaseDate { get; set; }
+
+        [XmlElement(ElementName = "developer")]
+        public string Developer { get; set; }
+
+        [XmlElement(ElementName = "publisher")]
+        public string Publisher { get; set; }
+
+        [XmlElement(ElementName = "genre")]
+        public string Genre { get; set; }
+
+        [XmlElement(ElementName = "players")]
+        public string Players { get; set; }
+
+        public string Description { get; set; }
         [XmlElement(ElementName = "playcount")]
         public string Playcount { get; set; }
         [XmlElement(ElementName = "lastplayed")]
         public string Lastplayed { get; set; }
-
-        [XmlElement(ElementName = "image")]
-        public string Image { get; set; }
 
         public string System { get; set; }
     }
