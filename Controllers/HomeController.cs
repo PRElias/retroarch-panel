@@ -5,7 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using OfficeOpenXml;
 using retroarch_panel.Models;
 
@@ -17,7 +19,14 @@ namespace retroarch_panel.Controllers
         public IActionResult Index() => View();
         public IActionResult Dados([FromServices] IGameService gameService)
         {
-            gameList = gameService.GetGames();
+            if (HttpContext.Session.GetString("games") == null){
+                gameList = gameService.GetGames();
+                HttpContext.Session.SetString("games", JsonConvert.SerializeObject(gameService.GetGames()));
+            }
+            else{
+                gameList = JsonConvert.DeserializeObject<GameList>(HttpContext.Session.GetString("games"));
+            }
+            
             return View(gameList);
         }
 
