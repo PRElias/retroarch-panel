@@ -1,8 +1,82 @@
 @model retroarch_panel.Models.Game
 
-<p>Sistema: @Model.System</p>
-<p>Nome: @Model.Name</p>
-
-<img src="@Url.Content(Model.Image)" class="img-fluid img-max" />
-
-<a href='javascript:history.go(-1)'>Voltar</a>
+<form>
+   <div class="form-group row">
+    <label for="staticSystem" class="col-sm-2 col-form-label">Sistema</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control" id="staticSystem" value="@Model.System" disabled>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="staticRom" class="col-sm-2 col-form-label">Rom</label>
+    <div class="col-sm-10">
+      <input type="text" readonly class="form-control" id="staticRom" value="@Model.Path" disabled>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputName" class="col-sm-2 col-form-label">Nome</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputName" value="@Model.Name">
+  </div>
+  </div>
+    <div class="form-group row">
+    <label for="Image" class="col-sm-2 col-form-label">Imagem</label>
+    <div class="col-sm-10">
+      <img src="@Url.Content(Model.Image)"/>
+    </div>
+  </div>
+<div class="form-group row">
+    <label for="inputDesc" class="col-sm-2 col-form-label">Descrição</label>
+    <div class="col-sm-10">
+        <textarea class="form-control" id="inputDesc" rows="10">@Model.Description</textarea>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputRating" class="col-sm-2 col-form-label">Nota</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputRating" value="@Model.Rating">
+  </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputReleaseDate" class="col-sm-2 col-form-label">Lançamento</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputReleaseDate" value="@Model.ReleaseDate">
+  </div>
+  </div>
+   <div class="form-group row">
+    <label for="inputDeveloper" class="col-sm-2 col-form-label">Desenvolvedora</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputDeveloper" value="@Model.Developer">
+  </div>
+  </div>
+   <div class="form-group row">
+    <label for="inputPublisher" class="col-sm-2 col-form-label">Publicadora</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPublisher" value="@Model.Publisher">
+  </div>
+  </div>
+   <div class="form-group row">
+    <label for="inputGenre" class="col-sm-2 col-form-label">Gênero</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputGenre" value="@Model.Genre">
+  </div>
+  </div>
+   <div class="form-group row">
+    <label for="inputPlayers" class="col-sm-2 col-form-label">Jogadores</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPlayers" value="@Model.Players">
+  </div>
+  </div>
+   <div class="form-group row">
+    <label for="inputPlaycount" class="col-sm-2 col-form-label">PlayCount</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPlaycount" value="@Model.Playcount">
+  </div>
+  </div>
+   <div class="form-group row">
+    <label for="inputLastplayed" class="col-sm-2 col-form-label">LastPlayed</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputLastplayed" value="@Model.Lastplayed">
+  </div>
+  </div>
+</form>
