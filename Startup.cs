@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
+using retroarch_panel.Services;
 
 namespace retroarch_panel
 {
@@ -24,15 +25,12 @@ namespace retroarch_panel
         {
             services.AddDistributedMemoryCache();
 
-            services.AddSession(options =>
-            {
-            // Set a short timeout for easy testing.
-                options.IdleTimeout = TimeSpan.FromMinutes(120);
-                options.Cookie.HttpOnly = true;
-            // Make the session cookie essential
-                options.Cookie.IsEssential = true;
-            });
-
+            // services.AddSession(options =>
+            // {
+            //     options.IdleTimeout = TimeSpan.FromMinutes(120);
+            //     options.Cookie.HttpOnly = true;
+            //     options.Cookie.IsEssential = true;
+            // });
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -63,7 +61,7 @@ namespace retroarch_panel
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSession();
+            // app.UseSession();
 
             // https://docs.microsoft.com/pt-br/aspnet/core/fundamentals/static-files?view=aspnetcore-2.2
             app.UseStaticFiles(new StaticFileOptions
