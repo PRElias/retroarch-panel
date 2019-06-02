@@ -28,10 +28,10 @@ namespace retroarch_panel.Controllers
             return View(gameList);
         }
 
-        public IActionResult Detalhes(Game game)
+        public IActionResult Detalhes(int id)
         {
             gameList = JsonConvert.DeserializeObject<GameList>(HttpContext.Session.GetString("games"));
-            var gameDetalhe = gameList.Games.Find(g => g.panelGameId == game.panelGameId);
+            var gameDetalhe = gameList.Games.Find(g => g.panelGameId == id);
             return View(gameDetalhe);
         }
 
