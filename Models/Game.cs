@@ -33,6 +33,7 @@ namespace retroarch_panel.Models
         public string Lastplayed { get; set; }
         public string System { get; set; }
         public int panelGameId { get; set; }
+        public string PanelImage { get; set; }
     }
 
     [XmlRoot(ElementName = "gameList")]
