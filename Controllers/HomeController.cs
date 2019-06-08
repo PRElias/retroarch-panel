@@ -78,9 +78,9 @@ namespace retroarch_panel.Controllers
 
         public void StopEmulationStation()
         {
-            Ssh ssh = new Ssh();
-            var teste = ssh.ExecuteCommand("killall emulationstation");
-            this.Response.Redirect("Home/Dados");
+            // Ssh ssh = new Ssh();
+            // var teste = ssh.ExecuteCommand("killall emulationstation");
+            // this.Response.Redirect("Home/Dados");
         }
 
         // public void StartEmulationStation()

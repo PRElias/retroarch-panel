@@ -7,11 +7,11 @@
     <button type="submit" class="btn btn-primary">Excel Download</button>
 }
 
-@using (Html.BeginForm("StopEmulationStation", "Home"))
+<!-- @using (Html.BeginForm("StopEmulationStation", "Home"))
 {
     <button type="submit" class="btn btn-primary">Stop EmulationStation</button>
 }
-</p>
+</p> -->
 
 <!-- @using (Html.BeginForm("StartEmulationStation", "Home"))
 {
@@ -41,7 +41,7 @@
                 Playcount
             </th>
             <th>
-                Lasplayed
+                Last played
             </th>
             <th>
                 Ações
@@ -68,7 +68,16 @@
                     @Html.DisplayFor(modelItem => game.Lastplayed)
                 </td>
                 <td>
-                    <a asp-action="Detalhes" asp-route-id="@game.panelGameId">Detalhes</a>
+                    <a asp-action="Detalhes" asp-route-id="@game.panelGameId">
+                        <span>
+                            <i class="far fa-edit"></i>
+                        </span>
+                    </a>
+                    <a href="https://www.youtube.com/results?search_query=@game.System+@game.Name.Replace(' ', '+')" target="_blank">
+                        <span style="color: Tomato;">
+                            <i class="fab fa-youtube"></i>
+                        </span>
+                    </a>
                 </td>
             </tr>
         }
