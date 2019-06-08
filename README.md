@@ -25,6 +25,7 @@ Website para exibição de dados de jogos de um Retroarch na rede local
 - Pesquisa por todos os campos
 - Ordenação
 - Exportação para Excel
+- Botão para pesquisa automática no Youtube para cada jogo
 
 # Roadmap
 
